@@ -1,0 +1,436 @@
+[
+  {
+    "name": "mfpurrs",
+    "address": "0xBCaC1c9C9848a47F6a49E886eC66E81A859b47Fa",
+    "supply": "10000",
+    "holders": "1835",
+    "image": "/collection-images/0xbcac1c9c9848a47f6a49e886ec66e81a859b47fa.svg"
+  },
+  {
+    "name": "Eths Maxis",
+    "address": "0x99C8984A955d5a671f18a876Ec35bfA6f6BA771b",
+    "supply": "201",
+    "holders": "78",
+    "image": "/collection-images/0x99c8984a955d5a671f18a876ec35bfa6f6ba771b.svg"
+  },
+  {
+    "name": "BLOCKS",
+    "address": "0xbB072E55FAb66931779ab833cE101c3565649453",
+    "supply": "20",
+    "holders": "17",
+    "image": "/collection-images/0xbb072e55fab66931779ab833ce101c3565649453.svg"
+  },
+  {
+    "name": "EBURP",
+    "address": "0x6BfffDEd0f30680F248C6A4B3E63E5E8972De82F",
+    "image": "/collection-images/0x6bfffded0f30680f248c6a4b3e63e5e8972de82f.svg",
+    "supply": "92",
+    "holders": "17"
+  },
+  {
+    "name": "erc-20 eths token",
+    "address": "0x90F877922D5868E78C24c9563189060a87212A78",
+    "supply": "21000000",
+    "holders": "1316",
+    "type": "ERC-404"
+  },
+  {
+    "name": "Pillars",
+    "address": "0xA63216Bb861E488aFFd460E0A209Bd70a817caDA",
+    "supply": "20",
+    "holders": "10",
+    "image": "/collection-images/0xa63216bb861e488affd460e0a209bd70a817cada.svg"
+  },
+  {
+    "name": "erc-20 Facet token",
+    "address": "0xc94A20ec5c15734946cA9E5577BcFAdb7753Bcf9",
+    "supply": "21000000",
+    "holders": "1154",
+    "type": "ERC-404"
+  },
+  {
+    "name": "Hyppocritez",
+    "address": "0xE5cCCfDDe467Beec545a68096810FFFeFf050F2e",
+    "supply": "4200",
+    "holders": "766",
+    "image": "/collection-images/0xe5cccfdde467beec545a68096810fffeff050f2e.svg"
+  },
+  {
+    "name": "Origin Souls",
+    "address": "0x462865f78d1e0cb199ED688C9830E75dde6BA3d2",
+    "supply": "16",
+    "holders": "14",
+    "image": "/collection-images/0x462865f78d1e0cb199ed688c9830e75dde6ba3d2.svg"
+  },
+  {
+    "name": "ittybits",
+    "address": "0x3dd192167111C7f5668C887519d7Ea8B000C8a50",
+    "supply": "10000",
+    "holders": "905",
+    "image": "/collection-images/0x3dd192167111c7f5668c887519d7ea8b000c8a50.svg"
+  },
+  {
+    "name": "peeperz",
+    "address": "0x6F157C7Ede6b24caD0b94D43D6bbAa85d8bd916d",
+    "supply": "6969",
+    "holders": "736",
+    "image": "/collection-images/0x6f157c7ede6b24cad0b94d43d6bbaa85d8bd916d.svg"
+  },
+  {
+    "name": "ScripToadz",
+    "address": "0xC7f712d47c409Eae5841d77e0e70d91921f03F77",
+    "supply": "6976",
+    "holders": "511",
+    "image": "/collection-images/0xc7f712d47c409eae5841d77e0e70d91921f03f77.svg"
+  },
+  {
+    "name": "Milady on-chain",
+    "address": "0x015Dfb804BFE6EBb921c1D05cb83C1aB02EBEf08",
+    "supply": "10000",
+    "holders": "2534",
+    "image": "/collection-images/0x015dfb804bfe6ebb921c1d05cb83c1ab02ebef08.svg"
+  },
+  {
+    "name": "Nakamingos",
+    "address": "0x531483D65EB7B75B5AdfC3331f301A836A0Eb3Bb",
+    "supply": "15000",
+    "holders": "1221",
+    "image": "/collection-images/0x531483d65eb7b75b5adfc3331f301a836a0eb3bb.svg"
+  },
+  {
+    "name": "suki",
+    "address": "0xDA9FaD45Ce4ACF5006180eB475d09C3B12B2a4F4",
+    "supply": "1367",
+    "holders": "386",
+    "image": "/collection-images/0xda9fad45ce4acf5006180eb475d09c3b12b2a4f4.svg"
+  },
+  {
+    "name": "Beyond Pixel: Vectorized Visions",
+    "address": "0x0C8087fCdBf72f869B1A4f377b7F046947cd2d87",
+    "supply": "20",
+    "holders": "7",
+    "image": "/collection-images/0x0c8087fcdbf72f869b1a4f377b7f046947cd2d87.svg"
+  },
+  {
+    "name": "Arthereum",
+    "address": "0x882E8a2028B2517E4F751de24E27dAd5d0c0D5c3",
+    "supply": "50",
+    "holders": "11",
+    "image": "/collection-images/0x882e8a2028b2517e4f751de24e27dad5d0c0d5c3.svg"
+  },
+  {
+    "name": "Nounscription Genesis",
+    "address": "0x6Fe98B9788A3bF5710f6a5372CBe8CD234087FaF",
+    "supply": "1250",
+    "holders": "235",
+    "image": "/collection-images/0x6fe98b9788a3bf5710f6a5372cbe8cd234087faf.svg"
+  },
+  {
+    "name": "erc-20 nodes token",
+    "address": "0xF2670b789772BC7b5f997FC67B42D8798F5E595b",
+    "supply": "10000000000",
+    "holders": "4448",
+    "type": "ERC-404"
+  },
+  {
+    "name": "ESIP-3 Welcome POAP",
+    "address": "0xe3694C308E98A569E186157B46B81D5a9a58F9AA",
+    "supply": "18714",
+    "holders": "9161",
+    "image": "/collection-images/0xe3694c308e98a569e186157b46b81d5a9a58f9aa.svg"
+  },
+  {
+    "name": "EthereumApes",
+    "address": "0x527F79216506489d3Fa6d5d7564b04FDfe80711A",
+    "supply": "594",
+    "holders": "89",
+    "image": "/collection-images/0x527f79216506489d3fa6d5d7564b04fdfe80711a.svg"
+  },
+  {
+    "name": "PNG Suite",
+    "address": "0x5049117520514Bad45180Ca3177095be134757fA",
+    "supply": "151",
+    "holders": "30",
+    "image": "/collection-images/0x5049117520514bad45180ca3177095be134757fa.svg"
+  },
+  {
+    "name": "Inscripigeons",
+    "address": "0x57fcDc8fc1fC39AdC4aCF428D2c9DAB7d4822b72",
+    "supply": "5000",
+    "holders": "323",
+    "image": "/collection-images/0x57fcdc8fc1fc39adc4acf428d2c9dab7d4822b72.svg"
+  },
+  {
+    "name": "Mfgrrs",
+    "address": "0xcBCe5703CEbBF023d1b8F777f71b1CC4e622345c",
+    "supply": "9466",
+    "holders": "877",
+    "image": "/collection-images/0xcbce5703cebbf023d1b8f777f71b1cc4e622345c.svg"
+  },
+  {
+    "name": "EthscriptRalph",
+    "address": "0xF064500b694a1bf6408F58De5bD9Cae79FA005Fe",
+    "supply": "1089",
+    "holders": "277",
+    "image": "/collection-images/0xf064500b694a1bf6408f58de5bd9cae79fa005fe.svg"
+  },
+  {
+    "name": "Anon Chain",
+    "address": "0x3B08c7491e6F99397BB836f7B506d3cef76934c0",
+    "supply": "70",
+    "holders": "14",
+    "image": "/collection-images/0x3b08c7491e6f99397bb836f7b506d3cef76934c0.svg"
+  },
+  {
+    "name": "ChainRocks",
+    "address": "0x77Ab70e577A2e256d0C4161AA0Bd4d3A5A6AD464",
+    "supply": "32",
+    "holders": "28",
+    "image": "/collection-images/0x77ab70e577a2e256d0c4161aa0bd4d3a5a6ad464.svg"
+  },
+  {
+    "name": "Nounscription Friends",
+    "address": "0x71edFe8C3b98b09CaeD4a207fD5580bF858fC1E2",
+    "supply": "5000",
+    "holders": "1688",
+    "image": "/collection-images/0x71edfe8c3b98b09caed4a207fd5580bf858fc1e2.svg"
+  },
+  {
+    "name": "noise.",
+    "address": "0xcdaA63f0C571A928ec80c5931460950487a44C71",
+    "supply": "236",
+    "holders": "104",
+    "image": "/collection-images/0xcdaa63f0c571a928ec80c5931460950487a44c71.svg"
+  },
+  {
+    "name": "DOCTORdripp Wearable Stars",
+    "address": "0x8D23f29a5aB7813086Be875BA60EB0AABF7f5080",
+    "supply": "53",
+    "holders": "23",
+    "image": "/collection-images/0x8d23f29a5ab7813086be875ba60eb0aabf7f5080.svg"
+  },
+  {
+    "name": "ESIP-6 POAP",
+    "address": "0xee5843505A5AA3f53361492aEd0d70AB50A8538E",
+    "supply": "11146",
+    "holders": "4092",
+    "image": "/collection-images/0xee5843505a5aa3f53361492aed0d70ab50a8538e.svg"
+  },
+  {
+    "name": "DataCity World",
+    "address": "0x8cb01E96ef92FCD40dCd5d6C17f9be71591D107a",
+    "supply": "6268",
+    "holders": "460",
+    "image": "/collection-images/0x8cb01e96ef92fcd40dcd5d6c17f9be71591d107a.svg"
+  },
+  {
+    "name": "Geeths",
+    "address": "0x5d7533efbd90A64f80c06274aA9719eecE730E76",
+    "supply": "250",
+    "holders": "56",
+    "image": "/collection-images/0x5d7533efbd90a64f80c06274aa9719eece730e76.svg"
+  },
+  {
+    "name": "Indelible Apes",
+    "address": "0x82F2511A38F44B3C8286F616407aEAf4d1fFb1fE",
+    "supply": "1552",
+    "holders": "164",
+    "image": "/collection-images/0x82f2511a38f44b3c8286f616407aeaf4d1ffb1fe.svg"
+  },
+  {
+    "name": "erc-20 dumb token",
+    "address": "0x2a96539e7A95837221561363D77fEcCAB0FA0CF5",
+    "supply": "21000000",
+    "holders": "1538",
+    "type": "ERC-404"
+  },
+  {
+    "name": "Nerdies",
+    "address": "0xec450D1a7D3c53C0505Ae7a0Eca0caB40d996326",
+    "supply": "2023",
+    "holders": "182",
+    "image": "/collection-images/0xec450d1a7d3c53c0505ae7a0eca0cab40d996326.svg"
+  },
+  {
+    "name": "On-Chain Photography",
+    "address": "0x867710f375DF21f4FCB814Ac9F125279888E9047",
+    "supply": "9",
+    "holders": "5",
+    "image": "/collection-images/0x867710f375df21f4fcb814ac9f125279888e9047.svg"
+  },
+  {
+    "name": "ScriptCats OG",
+    "address": "0xaC4128Ed355FF8f7B557aadB16868e7779a62bc6",
+    "supply": "333",
+    "holders": "56",
+    "image": "/collection-images/0xac4128ed355ff8f7b557aadb16868e7779a62bc6.svg"
+  },
+  {
+    "name": "SPKY Scriptoadz",
+    "address": "0x14B73c76a27345893E76b1c6533c627e7d30e01e",
+    "supply": "349",
+    "holders": "75",
+    "image": "/collection-images/0x14b73c76a27345893e76b1c6533c627e7d30e01e.svg"
+  },
+  {
+    "name": "Ebert's Moon Mission",
+    "address": "0x5c2B6c03C52E5df2983B6bc18F8Bc5B5E8b93774",
+    "supply": "4",
+    "holders": "1",
+    "image": "/collection-images/0x5c2b6c03c52e5df2983b6bc18f8bc5b5e8b93774.svg"
+  },
+  {
+    "name": "Prowling Purrs",
+    "address": "0xa5C12c5c19aC186a2c87e957970574B43B1bd96A",
+    "supply": "99",
+    "holders": "59",
+    "image": "/collection-images/0xa5c12c5c19ac186a2c87e957970574b43b1bd96a.svg"
+  },
+  {
+    "name": "Cupscriptions",
+    "address": "0x4fC973473b9304c18952d5ce565e160769928227",
+    "supply": "5000",
+    "holders": "501",
+    "image": "/collection-images/0x4fc973473b9304c18952d5ce565e160769928227.svg"
+  },
+  {
+    "name": "OnChainSquid",
+    "address": "0x09238a9E0B01D0233541Ec36db887B1D96BAd16C",
+    "supply": "525",
+    "holders": "91",
+    "image": "/collection-images/0x09238a9e0b01d0233541ec36db887b1d96bad16c.svg"
+  },
+  {
+    "name": "erc-20 mfpurrs token",
+    "address": "0x8938D4b3d5796b4916fa2F09C724BE43E3cDC547",
+    "supply": "21000000",
+    "holders": "1336",
+    "type": "ERC-404"
+  },
+  {
+    "name": "PepePunks DAO",
+    "address": "0x6464C1eF7175c08994Ae40901975569aE192E630",
+    "supply": "280",
+    "holders": "84",
+    "image": "/collection-images/0x6464c1ef7175c08994ae40901975569ae192e630.svg"
+  },
+  {
+    "name": "blood, trinity, & coin",
+    "address": "0x1115d81087890b05AD8C703f09a9F64aeE49e653",
+    "supply": "120",
+    "holders": "22",
+    "image": "/collection-images/0x1115d81087890b05ad8c703f09a9f64aee49e653.svg"
+  },
+  {
+    "name": "DEATHBLOCK",
+    "address": "0x3FB712A48567134EA6dF356b2DcD54fCa8c9e8A8",
+    "supply": "76",
+    "holders": "25",
+    "image": "/collection-images/0x3fb712a48567134ea6df356b2dcd54fca8c9e8a8.svg"
+  },
+  {
+    "name": "mfpurr-neko",
+    "address": "0x68F514f349AB4Eee5d4Bbc9B314Fe9ff10f4c05e",
+    "supply": "16",
+    "holders": "16",
+    "image": "/collection-images/0x68f514f349ab4eee5d4bbc9b314fe9ff10f4c05e.svg"
+  },
+  {
+    "name": "Unpunks on Ethereum",
+    "address": "0xc25dbb33f098451E7dB5D9438b414918AA3083A6",
+    "image": "/collection-images/0xc25dbb33f098451e7db5d9438b414918aa3083a6.svg",
+    "supply": "33",
+    "holders": "18"
+  },
+  {
+    "name": "flow",
+    "address": "0x2c6Ee3b7c32572C2F2c75b36A941429c1953BbE6",
+    "supply": "84",
+    "holders": "68",
+    "image": "/collection-images/0x2c6ee3b7c32572c2f2c75b36a941429c1953bbe6.svg"
+  },
+  {
+    "name": "erc-20 gwei token",
+    "address": "0x80eeD137f1B1A4e32C213bC97FDC971AEE779d4D",
+    "supply": "21000000",
+    "holders": "1764",
+    "type": "ERC-404"
+  },
+  {
+    "name": "EthPixels",
+    "address": "0x81cB423e0e51a4E6A4229bDb04445719E7f799ED",
+    "supply": "7",
+    "holders": "5",
+    "image": "/collection-images/0x81cb423e0e51a4e6a4229bdb04445719e7f799ed.svg"
+  },
+  {
+    "name": "mfpurrfect by NVMD",
+    "address": "0xCF43dF9aCb5ead4e9BBD6Af288dcA7CAb02CFEB5",
+    "supply": "32",
+    "holders": "15",
+    "image": "/collection-images/0xcf43df9acb5ead4e9bbd6af288dca7cab02cfeb5.svg"
+  },
+  {
+    "name": "Scribble's Games",
+    "address": "0xb851236E4e218178c3D9719aa8Abf23AbD25B8Cb",
+    "supply": "8",
+    "holders": "1",
+    "image": "/collection-images/0xb851236e4e218178c3d9719aa8abf23abd25b8cb.svg"
+  },
+  {
+    "name": "Ethscription Reapers",
+    "address": "0xb373A4422b9e876285708C427A03f3AE330E0591",
+    "supply": "111",
+    "holders": "7",
+    "image": "/collection-images/0xb373a4422b9e876285708c427a03f3ae330e0591.svg"
+  },
+  {
+    "name": "DISCLOSURE",
+    "address": "0xf5853F1553cAB6880bfF69aF1CbA818ae3AAFE5B",
+    "supply": "10",
+    "holders": "2",
+    "image": "/collection-images/0xf5853f1553cab6880bff69af1cba818ae3aafe5b.svg"
+  },
+  {
+    "name": "Eths Lab",
+    "address": "0x7005d4EB4B999c22E454C4e3163de861880d3Bab",
+    "supply": "50",
+    "holders": "21",
+    "image": "/collection-images/0x7005d4eb4b999c22e454c4e3163de861880d3bab.svg"
+  },
+  {
+    "name": "0xEthereals",
+    "address": "0x18E53b7261f8F1d9f2b523db603A4C95DD0Bc527",
+    "supply": "16",
+    "holders": "15",
+    "image": "/collection-images/0x18e53b7261f8f1d9f2b523db603a4c95dd0bc527.svg"
+  },
+  {
+    "name": "Bit-Coinz: Ethereum Edition",
+    "address": "0xBb41ebcA3cCb3EF806ffBfCe3C877b404899a0E8",
+    "supply": "30",
+    "holders": "3",
+    "image": "/collection-images/0xbb41ebca3ccb3ef806ffbfce3c877b404899a0e8.svg"
+  },
+  {
+    "name": "Ethscrapers",
+    "address": "0x0ca6c1C8E6d1457C46f6CbA207F2E96efd72015d",
+    "supply": "27",
+    "holders": "16",
+    "image": "/collection-images/0x0ca6c1c8e6d1457c46f6cba207f2e96efd72015d.svg"
+  },
+  {
+    "name": "Illegal Artifacts",
+    "address": "0x88a3AE3FF376a5dbbe728C8b6E81a492E81FFD44",
+    "supply": "22",
+    "holders": "21",
+    "image": "/collection-images/0x88a3ae3ff376a5dbbe728c8b6e81a492e81ffd44.svg"
+  },
+  {
+    "name": "0XB0B0S",
+    "address": "0xb368A84197Dc633F6816bA1a0326cD0f1B9f4D15",
+    "supply": "30",
+    "holders": "2",
+    "image": "/collection-images/0xb368a84197dc633f6816ba1a0326cd0f1b9f4d15.svg"
+  }
+]
