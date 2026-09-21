@@ -1,6 +1,6 @@
 # ethscriptions.com
 
-Source for the [ethscriptions.com](https://ethscriptions.com) website — a Next.js app for browsing ethscriptions and the Ethscriptions AppChain.
+Source for the [ethscriptions.com](https://ethscriptions.com) website — a Next.js app for creating and browsing ethscriptions on Ethereum L1.
 
 ## Stack
 
@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-The dev server runs on `http://localhost:3000`. No setup needed — defaults in [`.env`](.env) (committed) make the app talk to the official Ethscriptions infrastructure out of the box.
+The dev server runs on `http://localhost:3000`. No setup needed — defaults in [`.env`](.env) (committed) make the app talk to the Ethscriptions v2 API and Ethereum L1 RPCs out of the box.
 
 To override anything (different network, your own indexer, WalletConnect project ID, analytics), create a `.env.local` file with the variables you want to change. `.env.local` is gitignored.
 
@@ -30,7 +30,7 @@ All app config lives in [`.env`](.env) — the single source of truth for servic
 |---|---|
 | `NEXT_PUBLIC_NETWORK` | Target chain name (any key from `wagmi/chains`) |
 | `NEXT_PUBLIC_V2_API_BASE_URI` | Ethscriptions v2 API |
-| `NEXT_PUBLIC_EXPLORER_BASE_URI` | BlockScout-style explorer |
+| `NEXT_PUBLIC_EXPLORER_BASE_URI` | BlockScout-style explorer (collection snapshot script only; hosted explorer shuts down October 21, 2026) |
 | `NEXT_PUBLIC_DOCS_BASE_URI` | Docs site (linked from header/landing) |
 | `NEXT_PUBLIC_WEBSITE_BASE_URI` | Canonical site URL (used for the OG image) |
 | `NEXT_PUBLIC_MAINNET_RPC_URL` / `NEXT_PUBLIC_SEPOLIA_RPC_URL` | Ethereum L1 RPC endpoints used by wagmi |

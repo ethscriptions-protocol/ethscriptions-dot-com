@@ -18,7 +18,12 @@
     "serve": "next start",
     "lint": "next lint",
     "format": "prettier --write . '!(node_modules|.next)/**/*'",
-    "check-types": "tsc --noEmit --incremental"
+    "check-types": "tsc --noEmit --incremental",
+    "snapshot-collections": "node scripts/snapshot-collections.mts",
+    "extract-dump-collections": "node scripts/extract-dump-collections.mts",
+    "overlay-explorer-metadata": "node scripts/overlay-explorer-metadata.mts",
+    "test": "node --test scripts/*.test.mts lib/*.test.mts",
+    "test:snapshot-collections": "node --test scripts/*.test.mts"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.11",

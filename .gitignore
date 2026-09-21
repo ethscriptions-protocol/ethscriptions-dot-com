@@ -38,3 +38,10 @@ yarn-error.log*
 # misc dev tooling
 .playwright-mcp
 .crossfire
+
+# in-progress collection ID snapshots
+/data/collections/.progress/
+scripts/__pycache__/
+
+# local postgres dumps (multi-GB)
+*.dump

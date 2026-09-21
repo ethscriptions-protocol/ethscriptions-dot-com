@@ -12,8 +12,11 @@ import { WagmiProvider } from "wagmi";
 import { Footer } from "~~/components/Footer";
 import { Header } from "~~/components/Header";
 import { BlockieAvatar } from "~~/components/wallet";
+import { installV2RateLimit } from "~~/lib/v2RateLimit";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 import "~~/styles/globals.css";
+
+installV2RateLimit();
 
 const queryClient = new QueryClient();
 

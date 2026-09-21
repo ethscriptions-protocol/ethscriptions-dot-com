@@ -2,19 +2,25 @@ import Link from "next/link";
 import { EthscriptionRenderer } from "./EthscriptionRenderer";
 import { Heading } from "./Heading";
 import { Ethscription } from "~~/types/ethscriptions";
-import { formatTimestamp } from "~~/utils/formatter";
+import { formatTimestamp, truncateMiddle } from "~~/utils/formatter";
 
 export const EthscriptionItem = ({
   ethscription,
   name,
+  href,
+  tokenId,
+  showOwner,
   backgroundColor,
 }: {
   ethscription: Ethscription;
   name?: string;
+  href?: string;
+  tokenId?: number | string | null;
+  showOwner?: boolean;
   backgroundColor?: string | null;
 }) => {
   return (
-    <Link href={`/ethscriptions/${ethscription.transaction_hash}`}>
+    <Link href={href || `/ethscriptions/${ethscription.transaction_hash}`}>
       <div className="flex bg-white flex-col items-start justify-start gap-4 tracking-tight w-full h-full shadow-sm rounded-xl overflow-hidden">
         <div className="flex flex-col gap-1 w-full h-full text-lg justify-between relative">
           <div className="w-full overflow-hidden">
@@ -40,9 +46,16 @@ export const EthscriptionItem = ({
                 {`Ethscription ${!!ethscription.ethscription_number ? ` #${ethscription.ethscription_number}` : ""}`}
               </Heading>
             )}
-            <div className="text-xs text-gray-500">
-              Created {formatTimestamp(new Date(parseInt(ethscription.block_timestamp) * 1000).toISOString())}
-            </div>
+            {tokenId != null && tokenId !== "" ? (
+              <div className="text-xs text-gray-500">ID# {tokenId}</div>
+            ) : (
+              <div className="text-xs text-gray-500">
+                Created {formatTimestamp(new Date(parseInt(ethscription.block_timestamp) * 1000).toISOString())}
+              </div>
+            )}
+            {showOwner && ethscription.current_owner && (
+              <div className="text-xs text-gray-500">Owner {truncateMiddle(ethscription.current_owner, 6, 4)}</div>
+            )}
           </div>
         </div>
       </div>

@@ -101,6 +101,22 @@ export const Header = () => {
 
   return (
     <>
+      <div className="z-20 flex justify-center px-4 py-2.5 text-sm text-center border-b bg-amber-100">
+        <p className="max-w-8xl text-xs">
+          The ethscriptions.com-hosted AppChain <a href="https://explorer.ethscriptions.com" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-black">explorer</a> and <a href="https://mainnet.ethscriptions.com" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-black">RPC</a> will shut down on{" "}
+          <strong>October 21, 2026</strong>. The AppChain itself is unaffected. To bootstrap your own node, {" "}
+          <a
+            href="https://snapshots.ethscriptions.com/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline font-medium hover:text-black"
+          >
+            get
+            the data dump
+          </a>
+          .
+        </p>
+      </div>
       <div
         className={clsx(
           "justify-center items-center z-20 flex px-1 py-1 text-xs border-b",

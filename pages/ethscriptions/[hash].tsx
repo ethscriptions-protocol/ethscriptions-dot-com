@@ -4,11 +4,12 @@ import { useRouter } from "next/router";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { sendTransaction, waitForTransactionReceipt } from "@wagmi/core";
 import axios from "axios";
-import type { NextPage } from "next";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { type Hex, isAddress } from "viem";
 import { useAccount, useChainId } from "wagmi";
 import { Button } from "~~/components/Button";
 import { Card } from "~~/components/Card";
+import { CollectionAttributes } from "~~/components/CollectionAttributes";
 import { EthscriptionRenderer } from "~~/components/EthscriptionRenderer";
 import { Heading } from "~~/components/Heading";
 import { List } from "~~/components/List";
@@ -19,6 +20,7 @@ import { SectionContainer } from "~~/components/SectionContainer";
 import { Table } from "~~/components/Table";
 import { AddressInput } from "~~/components/wallet";
 import { Address } from "~~/components/wallet/Address";
+import type { CollectionHit } from "~~/lib/collections";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 import { Ethscription, Transfer } from "~~/types/ethscriptions";
 import { v2 } from "~~/utils/escUrl";
@@ -38,7 +40,49 @@ function etherscanLink(hash: string) {
 
 const configuredNetwork = getTargetNetwork();
 
-const EthscriptionPage: NextPage = () => {
+type PageProps = { collectionHits: CollectionHit[] };
+
+function CollectionMembership({ hits }: { hits: CollectionHit[] }) {
+  return (
+    <>
+      {hits.map(hit => (
+        <div key={hit.slug} className="flex flex-col gap-3">
+          <Heading size="h5">
+            <Link href={`/collections/${hit.slug}`} className="underline hover:text-black">
+              {hit.name}
+            </Link>
+          </Heading>
+          <List
+            items={[
+              {
+                label: "Token ID",
+                value: (
+                  <Link
+                    href={`/collections/${hit.slug}/${hit.item.i}`}
+                    className="text-base underline hover:text-black"
+                  >
+                    {String(hit.item.i)}
+                  </Link>
+                ),
+              },
+            ]}
+          />
+          <CollectionAttributes traits={hit.item.a} />
+        </div>
+      ))}
+    </>
+  );
+}
+
+export const getStaticPaths: GetStaticPaths = async () => ({ paths: [], fallback: "blocking" });
+
+export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
+  const hash = typeof params?.hash === "string" ? params.hash : "";
+  const { findCollectionHitsByHash } = await import("../../lib/loadCollections");
+  return { props: { collectionHits: findCollectionHitsByHash(hash) }, revalidate: 60 };
+};
+
+const EthscriptionPage: NextPage<PageProps> = ({ collectionHits = [] }) => {
   const [lastImportedBlock, setLastImportedBlock] = useState(0);
   const [blocksBehind, setBlocksBehind] = useState(0);
   const [refresh, setRefresh] = useState(1);
@@ -177,16 +221,19 @@ const EthscriptionPage: NextPage = () => {
     );
   }
 
-  if (!ethscription) {
-    return null;
-  }
+  const title =
+    collectionHits.length === 1 && collectionHits[0].item.n
+      ? collectionHits[0].item.n
+      : `Ethscription ${ethscription?.ethscription_number ? ` #${ethscription.ethscription_number}` : ""}`;
 
   return (
     <>
       <MetaTags
         collection={{
-          name: "Ethscriptions",
-          description: "Ethscriptions",
+          name: collectionHits[0]?.item.n || collectionHits[0]?.name || "Ethscriptions",
+          description: collectionHits[0]
+            ? `${collectionHits[0].item.n || collectionHits[0].name} ethscription`
+            : "Ethscriptions",
         }}
       />
       <SectionContainer>
@@ -194,15 +241,19 @@ const EthscriptionPage: NextPage = () => {
           <Card>
             <div className="w-full flex flex-col sm:flex-row gap-8">
               <div className="flex flex-1 flex-col items-start justify-start tracking-tight w-full h-full border border-gray-300 rounded-xl overflow-hidden">
-                <EthscriptionRenderer
-                  hash={ethscription.transaction_hash}
-                  contentURI={ethscription.content_uri}
-                  mimetype={ethscription.mimetype}
-                  attachmentPath={ethscription.attachment_path}
-                />
+                {ethscription ? (
+                  <EthscriptionRenderer
+                    hash={ethscription.transaction_hash}
+                    contentURI={ethscription.content_uri}
+                    mimetype={ethscription.mimetype}
+                    attachmentPath={ethscription.attachment_path}
+                  />
+                ) : (
+                  <div className="aspect-square w-full bg-gray-100" />
+                )}
               </div>
               <div className="flex flex-1 flex-col gap-4">
-                {lastTransferConfirmations < MIN_CONFIRMATIONS && !isWrongNetwork && (
+                {ethscription && lastTransferConfirmations < MIN_CONFIRMATIONS && !isWrongNetwork && (
                   <div
                     className="badge rounded-md border border-red-500 bg-red-100 text-black text-xs
           font-medium text-start text-wrap py-1.5 px-3 h-auto"
@@ -211,7 +262,7 @@ const EthscriptionPage: NextPage = () => {
                     {MIN_CONFIRMATIONS - lastTransferConfirmations === 1 ? "" : "s"}
                   </div>
                 )}
-                {isIndexerBehind && !isWrongNetwork && (
+                {ethscription && isIndexerBehind && !isWrongNetwork && (
                   <div
                     className="badge rounded-md border border-red-500 bg-red-100 text-black text-xs
           font-medium text-start text-wrap py-1.5 px-3 h-auto"
@@ -219,7 +270,7 @@ const EthscriptionPage: NextPage = () => {
                     Locked until indexer catches up
                   </div>
                 )}
-                {isWrongNetwork && (
+                {ethscription && isWrongNetwork && (
                   <div
                     className="badge rounded-md border border-red-500 bg-red-100 text-black text-xs
           font-medium text-start text-wrap py-1.5 px-3 h-auto"
@@ -227,19 +278,15 @@ const EthscriptionPage: NextPage = () => {
                     Connected to the wrong network
                   </div>
                 )}
-                <Heading size="h2">
-                  {`Ethscription ${
-                    !!ethscription.ethscription_number ? ` #${ethscription.ethscription_number}` : ""
-                  }`}
-                </Heading>
-                {isCurrentOwner && (
+                <Heading size="h2">{title}</Heading>
+                {ethscription && isCurrentOwner && (
                   <div className="flex flex-col gap-2 mt-2">
                     <Button onClick={() => setShowTransferModal(true)} disabled={isLocked} loading={transferLoading}>
                       Transfer
                     </Button>
                   </div>
                 )}
-                {canWithdrawFromMarketplace && (
+                {ethscription && canWithdrawFromMarketplace && (
                   <div className="flex flex-col gap-2 mt-2">
                     <Link
                       href="/marketplace-withdraw"
@@ -249,121 +296,126 @@ const EthscriptionPage: NextPage = () => {
                     </Link>
                   </div>
                 )}
-                <List
-                  items={[
-                    {
-                      label: "Mimetype",
-                      value: <div className="text-base truncate">{ethscription?.mimetype}</div>,
-                      hidden: !ethscription?.mimetype,
-                    },
-                    {
-                      label: "Ethscription #",
-                      value: <div className="text-base">{ethscription?.ethscription_number}</div>,
-                      hidden: !ethscription?.ethscription_number,
-                    },
-                    {
-                      label: "Owner",
-                      value: (
-                        <Link
-                          href={`/${ethscription.current_owner}`}
-                          className="text-gray-500 hover:text-black transition-colors text-base"
-                        >
-                          <Address address={ethscription.current_owner} disableAddressLink noAvatar noCopy />
-                        </Link>
-                      ),
-                    },
-                    {
-                      label: "Creator",
-                      value: (
-                        <Link
-                          href={`/${ethscription.creator}`}
-                          className="text-gray-500 hover:text-black transition-colors text-base"
-                        >
-                          <Address address={ethscription.creator} disableAddressLink noAvatar noCopy />
-                        </Link>
-                      ),
-                    },
-                    {
-                      label: "Created",
-                      value: (
-                        <Link
-                          target="_blank"
-                          href={etherscanLink(ethscription.transaction_hash)}
-                          onClick={e => e.stopPropagation()}
-                          className="text-gray-500 hover:text-black transition-colors text-base"
-                        >
-                          {formatTimestamp(new Date(parseInt(ethscription.block_timestamp) * 1000).toISOString())}
-                        </Link>
-                      ),
-                    },
-                    {
-                      label: "Has Attachment (Blob)?",
-                      value: (
-                        <Link
-                          target="_blank"
-                          href={etherscanLink(ethscription.transaction_hash)}
-                          onClick={e => e.stopPropagation()}
-                          className="text-gray-500 hover:text-black transition-colors text-base"
-                        >
-                          {!!ethscription.attachment_path ? "Yes" : "No"}
-                        </Link>
-                      ),
-                    },
-                    {
-                      label: "Attachment Content Type",
-                      value: ethscription.attachment_content_type || "N/A",
-                    },
-                  ]}
-                />
+                {ethscription && (
+                  <List
+                    items={[
+                      {
+                        label: "Mimetype",
+                        value: <div className="text-base truncate">{ethscription?.mimetype}</div>,
+                        hidden: !ethscription?.mimetype,
+                      },
+                      {
+                        label: "Ethscription #",
+                        value: <div className="text-base">{ethscription?.ethscription_number}</div>,
+                        hidden: !ethscription?.ethscription_number,
+                      },
+                      {
+                        label: "Owner",
+                        value: (
+                          <Link
+                            href={`/${ethscription.current_owner}`}
+                            className="text-gray-500 hover:text-black transition-colors text-base"
+                          >
+                            <Address address={ethscription.current_owner} disableAddressLink noAvatar noCopy />
+                          </Link>
+                        ),
+                      },
+                      {
+                        label: "Creator",
+                        value: (
+                          <Link
+                            href={`/${ethscription.creator}`}
+                            className="text-gray-500 hover:text-black transition-colors text-base"
+                          >
+                            <Address address={ethscription.creator} disableAddressLink noAvatar noCopy />
+                          </Link>
+                        ),
+                      },
+                      {
+                        label: "Created",
+                        value: (
+                          <Link
+                            target="_blank"
+                            href={etherscanLink(ethscription.transaction_hash)}
+                            onClick={e => e.stopPropagation()}
+                            className="text-gray-500 hover:text-black transition-colors text-base"
+                          >
+                            {formatTimestamp(new Date(parseInt(ethscription.block_timestamp) * 1000).toISOString())}
+                          </Link>
+                        ),
+                      },
+                      {
+                        label: "Has Attachment (Blob)?",
+                        value: (
+                          <Link
+                            target="_blank"
+                            href={etherscanLink(ethscription.transaction_hash)}
+                            onClick={e => e.stopPropagation()}
+                            className="text-gray-500 hover:text-black transition-colors text-base"
+                          >
+                            {!!ethscription.attachment_path ? "Yes" : "No"}
+                          </Link>
+                        ),
+                      },
+                      {
+                        label: "Attachment Content Type",
+                        value: ethscription.attachment_content_type || "N/A",
+                      },
+                    ]}
+                  />
+                )}
+                <CollectionMembership hits={collectionHits} />
               </div>
             </div>
           </Card>
         </Section>
-        <Section>
-          <Card className="gap-4">
-            <Heading size="h2">Activity</Heading>
-            <div className="flex flex-col">
-              <Table
-                headers={["Event", "From", "To", "Date"]}
-                rows={transfers.map((transfer, index) => {
-                  const iso = new Date(parseInt(transfer.block_timestamp) * 1000).toISOString();
-                  const formatted = formatTimestamp(iso);
-                  return [
-                    <div key={transfer.transaction_hash} className="text-base">
-                      {index !== transfers.length - 1 ? "Transfer" : "Create"}
-                    </div>,
-                    <Link
-                      key={transfer.transaction_hash}
-                      href={`/${transfer.from_address}`}
-                      className="text-gray-500 hover:text-black transition-colors text-base"
-                    >
-                      <Address disableAddressLink={true} noAvatar={true} noCopy={true} address={transfer.from_address} />
-                    </Link>,
-                    <Link
-                      key={transfer.transaction_hash}
-                      href={`/${transfer.to_address}`}
-                      className="text-gray-500 hover:text-black transition-colors text-base"
-                    >
-                      <Address disableAddressLink={true} noAvatar={true} noCopy={true} address={transfer.to_address} />
-                    </Link>,
-                    formatted ? (
+        {ethscription && (
+          <Section>
+            <Card className="gap-4">
+              <Heading size="h2">Activity</Heading>
+              <div className="flex flex-col">
+                <Table
+                  headers={["Event", "From", "To", "Date"]}
+                  rows={transfers.map((transfer, index) => {
+                    const iso = new Date(parseInt(transfer.block_timestamp) * 1000).toISOString();
+                    const formatted = formatTimestamp(iso);
+                    return [
+                      <div key={transfer.transaction_hash} className="text-base">
+                        {index !== transfers.length - 1 ? "Transfer" : "Create"}
+                      </div>,
                       <Link
                         key={transfer.transaction_hash}
-                        href={etherscanLink(transfer.transaction_hash)}
-                        target="_blank"
+                        href={`/${transfer.from_address}`}
                         className="text-gray-500 hover:text-black transition-colors text-base"
                       >
-                        {formatted}
-                      </Link>
-                    ) : (
-                      ""
-                    ),
-                  ];
-                })}
-              />
-            </div>
-          </Card>
-        </Section>
+                        <Address disableAddressLink={true} noAvatar={true} noCopy={true} address={transfer.from_address} />
+                      </Link>,
+                      <Link
+                        key={transfer.transaction_hash}
+                        href={`/${transfer.to_address}`}
+                        className="text-gray-500 hover:text-black transition-colors text-base"
+                      >
+                        <Address disableAddressLink={true} noAvatar={true} noCopy={true} address={transfer.to_address} />
+                      </Link>,
+                      formatted ? (
+                        <Link
+                          key={transfer.transaction_hash}
+                          href={etherscanLink(transfer.transaction_hash)}
+                          target="_blank"
+                          className="text-gray-500 hover:text-black transition-colors text-base"
+                        >
+                          {formatted}
+                        </Link>
+                      ) : (
+                        ""
+                      ),
+                    ];
+                  })}
+                />
+              </div>
+            </Card>
+          </Section>
+        )}
       </SectionContainer>
       <Modal
         title="Transfer Ethscription"
